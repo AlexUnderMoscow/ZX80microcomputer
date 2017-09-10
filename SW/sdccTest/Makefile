@@ -7,9 +7,7 @@ DATA = 0x1000
 STACK = 0x7000
 CXXFLAGS = -mz80 --float-reent --no-std-crt0 --vc --code-loc $(CODE) --data-loc $(DATA) --xram-loc $(RAM)
 #16384
-
 SRC = screenout.c lib.c
-
 all : $(LINK_TARGET)
 	echo All done
 

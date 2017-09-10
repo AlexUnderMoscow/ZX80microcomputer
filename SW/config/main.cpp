@@ -135,12 +135,7 @@ if (argc!=4)
           }
           for(d=alldevs; d; d=d->next)
               {
-                  //printf("%d. %s", ++i, d->name);
               ++i;
-                  //if (d->description)
-                      //printf(" (%s)\n", d->description);
-                 // else
-                     // printf(" (No description available)\n");
               }
 
               if(i==0)
@@ -176,47 +171,20 @@ if (argc!=4)
                  }
   printf("\nNetwork device=%s", d->description);
   mypacket pack;
-  //printf("\ncmdline args count=%d", argc);
-
-  /* First argument is executable name only */
-  //printf("\nexe name=%s", argv[0]);
-
   for (i=1; i< argc; i++) {
       printf("\narg%d=%s", i, argv[i]);
    }
-
-  /* Conversion string into int */
- // d = atoi(argv[1]);
-  //printf("\nargv[1] in intger=%d",d);
-
-  /* Conversion string into float */
-  f = atof(argv[1]);
-  //printf("\nargv[1] in float=%f",f);
-
-  /* Conversion string into long int */
-  l = strtol(argv[2], NULL, 0);
-  //printf("\nargv[2] in long int=%ld",l);
-
-  /*Open file whose path is passed as an argument */
   file = fopen( argv[3], "rb" );
-
   /* fopen returns NULL pointer on failure */
-
   if ( file == NULL) {
       printf("\nCould not open file");
     }
   else {
       printf("\nFile %s opened", argv[3]);
-
-      //fseek(file, 0L, SEEK_END);
-      //int fileSize = ftell(file);
-      //fseek(file, 0L, SEEK_SET);
       int size = _filelength(fileno(file));
       printf("\nFile size = %d bytes", size);
       buf = new unsigned char[size];
       fread(buf,sizeof(char),size,file);
-      ///
-      ///
       int packCount = (size << 2) / packSize;
       packCount++;
       if (strcmp(argv[1],"b"))
@@ -238,11 +206,9 @@ if (argc!=4)
         {       //hex
 
         }
-
       //delete [] buf;
     }
 // fclose(file);
  // printf("\n");
    return 0;
 }
-
